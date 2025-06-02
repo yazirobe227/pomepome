@@ -1,4 +1,4 @@
-# PomePome Handmade ブランドサイト
+# pomepome Handmade ブランドサイト
 
 このフォルダには、PomePomeのブランドサイトのHTMLテンプレートが含まれています。
 
