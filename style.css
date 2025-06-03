@@ -91,13 +91,16 @@ body {
   .hero-images img,
   .hero-images img.slide {
     position: static;
-    width: 48%;
+    width: 100%;
     height: auto;
     opacity: 1;
     animation: none;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .hero-images picture {
+    width: 50%;
   }
 }
 
