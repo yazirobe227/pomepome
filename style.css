@@ -1,5 +1,8 @@
+/* Google Fonts 読み込み（HTMLヘッダー側に挿入する必要あり） */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
 body {
-  font-family: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+  font-family: "Noto Serif JP", serif;
   background: #fefbf7;
   color: #444;
   margin: 0;
@@ -16,7 +19,9 @@ body {
 .site-header h1 {
   margin: 0;
   font-size: 1.2rem;
-  font-weight: normal;
+  font-weight: 400;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.02em;
 }
 .site-header nav ul {
   list-style: none;
@@ -60,6 +65,19 @@ body {
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+.hero h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.hero p {
+  font-size: 0.95rem;
+  color: #666;
 }
 
 @media (min-width: 768px) {
@@ -111,6 +129,11 @@ section {
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 .gallery-grid figcaption {
   margin-top: 0.5rem;
