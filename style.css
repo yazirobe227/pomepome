@@ -36,24 +36,51 @@ body {
   padding: 3rem 1rem;
 }
 .hero-images {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  position: relative;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto 2rem;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
 .hero-images img {
-  width: 45%;
-  max-width: 360px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: opacity 2s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeHero 8s infinite;
 }
 .hero-images img.slide {
-  animation: fade 6s ease-in-out infinite alternate;
+  animation-delay: 4s;
 }
-@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes fadeHero {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media (min-width: 768px) {
+  .hero-images {
+    display: flex;
+    aspect-ratio: auto;
+    position: static;
+    overflow: visible;
+    gap: 1rem;
+  }
+  .hero-images img,
+  .hero-images img.slide {
+    position: static;
+    width: 48%;
+    height: auto;
+    opacity: 1;
+    animation: none;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
 }
 
 section {
@@ -64,10 +91,15 @@ section {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   justify-items: center;
   padding: 1rem;
+}
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .gallery-grid figure {
   margin: 0;
@@ -75,14 +107,14 @@ section {
 .gallery-grid img {
   width: 100%;
   height: auto;
-  max-width: 360px;   /* 最大横幅を制限 */
+  max-width: 240px;
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 .gallery-grid figcaption {
   margin-top: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #666;
 }
 
