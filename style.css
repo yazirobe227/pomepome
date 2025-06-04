@@ -103,6 +103,17 @@ body {
 }
 
 @media (min-width: 768px) {
+  .site-header nav ul {
+    flex-wrap: wrap; /* 必要であれば折り返し可能に */
+    justify-content: center;
+    gap: 0.8rem;  /* ナビ間の余白を少し詰める */
+    font-size: 0.8rem;  /* フォントサイズ小さめに */
+    padding: 0 0.5rem; 
+  }
+
+  .site-header nav li {
+    white-space: nowrap;  /* 単語が途中で折り返さないように */
+  }
   .hero-images {
     display: flex;
     aspect-ratio: auto;
