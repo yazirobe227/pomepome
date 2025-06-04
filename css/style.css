@@ -231,6 +231,15 @@ header {
     overflow: hidden;
 }
 
+/* scroll-item画像にも高さ指定を追加して整える */
+.scroll-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
