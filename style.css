@@ -30,12 +30,13 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin: 1rem 0 0;
 }
 .site-header nav a {
   text-decoration: none;
   color: #6a554f;
+  font-size: 0.8rem; /* ← モバイル向けグローバルナビのフォント */
 }
 
 /* 画像セクション */
@@ -107,7 +108,7 @@ body {
     flex-wrap: wrap; /* 必要であれば折り返し可能に */
     justify-content: center;
     gap: 0.8rem;  /* ナビ間の余白を少し詰める */
-    font-size: 0.6rem;  /* フォントサイズ小さめに */
+    font-size: 0.8rem;  /* フォントサイズ小さめに */
     padding: 0 0.5rem; 
   }
 
@@ -150,7 +151,7 @@ section {
   justify-items: center;
   padding: 1rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 760px) {
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }
