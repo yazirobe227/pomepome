@@ -190,6 +190,11 @@ section {
   color: #7a6a5a;
   margin: 0 0.25em;
 }
+/* 新しく追加するスタイル：リストの「・」を消す */
+ul {
+  list-style-type: none; /* 点を消す */
+  padding-left: 0; /* 左の余白をなくす */
+}
 footer {
   background: #eeeae5;
   padding: 2rem;
