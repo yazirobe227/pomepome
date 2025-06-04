@@ -180,7 +180,16 @@ section {
   .hero-text {
     background-color: #fdfaf7;
   }
-
+.hero-text .links {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #7a6a5a;
+}
+.hero-text .links a {
+  text-decoration: none;
+  color: #7a6a5a;
+  margin: 0 0.25em;
+}
 footer {
   background: #eeeae5;
   padding: 2rem;
