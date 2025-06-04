@@ -1,80 +1,170 @@
-/* Google Fonts 読み込み（HTMLヘッダー側に挿入する必要あり） */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+/* css/style.css */
 
+/* Basic Reset & Body Styles */
 body {
-  font-family: "Noto Serif JP", serif;
-  background: #fefbf7;
-  color: #444;
-  margin: 0;
-  padding: 0;
-  line-height: 1.8;
-  text-align: center;
+    margin: 0;
+    font-family: 'Lato', sans-serif; /* Body text font */
+    color: #333; /* Dark gray for text */
+    line-height: 1.6;
+    background-color: #f8f8f8; /* Light off-white background */
 }
 
-.site-header {
-  background-color: #f7f4f0;
-  border-bottom: 1px solid #ddd5cc;
-  padding: 1rem 0;
-}
-.site-header h1 {
-  font-family: 'Pinyon Script', cursive;
-  font-size: 2.2rem;
-  letter-spacing: 0.05em;
-  font-weight: 400;
-  margin: 0;
-  text-align: center;
-}
-.site-header nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1rem 0 0;
-}
-.site-header nav a {
-  text-decoration: none;
-  color: #6a554f;
-  font-size: 0.8rem; /* ← モバイル向けグローバルナビのフォント */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; /* Heading font */
+    color: #4A4A4A; /* Slightly darker gray for headings */
+    margin-bottom: 1rem;
 }
 
-/* 画像セクション */
-.hero {
-  background-color: #f2eee9;
-  padding-top: 1.5rem;     /* 上の余白 → 現在のまま */
-  padding-bottom: 0.5rem;  /* 下の余白 → 狭くする */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-.hero-images {
-  position: relative;
-  width: 100%;
-  max-width: 840px;
-  margin: 0 auto 1.5rem;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
+
+.section-padding {
+    padding: 80px 0; /* Consistent vertical padding for sections */
 }
-.hero-images img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  animation: fadeHero 8s infinite;
+
+.text-center {
+    text-align: center;
 }
-.hero-images img.slide {
-  animation-delay: 4s;
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
-@keyframes fadeHero {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.logo a {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #A08A84; /* A soft, elegant accent color */
+}
+
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-nav-overlay.open {
+    transform: translateX(0);
+}
+
+.mobile-nav-overlay ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-nav-overlay li {
+    margin-bottom: 20px;
+}
+
+.mobile-nav-overlay a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+
+/* Hero Section */
+.hero-section {
+    background: url('images/hero_bg.jpg') no-repeat center center/cover; /* Replace with your hero image */
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section::before { /* Subtle overlay for text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
 .hero-text {
-  background-color: #faf6f1;
-  padding: 0.5rem 0; /* ← 背景エリア狭く */
-  text-align: center;
+    text-align: center;
+    margin-top: 40px;
 }
 
 .hero-text h2 {
@@ -90,114 +180,351 @@ body {
   color: #7a6a5a;
 }
 
-.hero h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.2rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
-}
-.hero p {
-  font-size: 0.95rem;
-  color: #666;
+.hero-images {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .site-header nav ul {
-    flex-wrap: wrap; /* 必要であれば折り返し可能に */
-    justify-content: center;
-    gap: 0.8rem;  /* ナビ間の余白を少し詰める */
-    font-size: 1rem;  /* フォントサイズ小さめに */
-    padding: 0 0.5rem; 
-  }
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 0;
+}
 
-  .site-header nav li {
-    white-space: nowrap;  /* 単語が途中で折り返さないように */
-  }
-  .hero-images {
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide picture, .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.horizontal-scroll {
     display: flex;
-    aspect-ratio: auto;
-    position: static;
-    overflow: visible;
-    gap: 1rem;
-  }
-  .hero-images img,
-  .hero-images img.slide {
-    position: static;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-item {
+    flex: 0 0 auto;
+    width: 300px;
+    scroll-snap-align: start;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background-color: #A08A84; /* Main accent color */
+    color: #fff;
+    border: 1px solid #A08A84;
+}
+
+.primary-btn:hover {
+    background-color: #8C7872;
+    border-color: #8C7872;
+}
+
+.secondary-btn {
+    background-color: #fff;
+    color: #A08A84;
+    border: 1px solid #A08A84;
+}
+
+.secondary-btn:hover {
+    background-color: #A08A84;
+    color: #fff;
+}
+
+/* Trending Jewelry Section */
+.trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.trending-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trending-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.trending-item img {
+    width: 100%;
+    height: 300px; /* Consistent image height */
+    object-fit: cover;
+    display: block;
+}
+
+.trending-item h3 {
+    margin: 15px 0 5px;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.trending-item p {
+    color: #777;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Collections Section (formerly Gallery) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 350px; /* Consistent height for collection images */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 1.8rem;
+    z-index: 2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.overlay-link { /* A subtle overlay for click area on collection images */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover .overlay-link {
+    opacity: 1;
+}
+
+
+/* About Us Section */
+.about-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px; /* Ensures image doesn't get too small */
+}
+
+.about-image img {
     width: 100%;
     height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-text h2 {
+    margin-bottom: 20px;
+}
+
+/* Newsletter CTA */
+.newsletter-cta {
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.newsletter-form input {
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+    width: 300px;
+    max-width: 80%;
+}
+
+.newsletter-form button {
+    border-radius: 0 5px 5px 0;
+    border: none;
+    padding: 12px 25px;
+    background-color: #A08A84;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #8C7872;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #f0f0f0;
+    padding: 60px 0 30px;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%); /* Makes black icons white */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-links img:hover {
     opacity: 1;
-    animation: none;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  .hero-images picture {
-    width: 50%;
-  }
 }
 
-section {
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+.copyright {
+    text-align: center;
+    color: #bbb;
+    padding-top: 20px;
+    border-top: 1px solid #555;
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  justify-items: center;
-  padding: 1rem;
-}
-@media (min-width: 760px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.gallery-grid figure {
-  margin: 0;
-}
-.gallery-grid img {
-  width: 100%;
-  height: auto;
-  max-width: 240px;
-  margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.gallery-grid img:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-.gallery-grid figcaption {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: #666;
-}
-  .hero-text {
-    background-color: #fdfaf7;
-  }
-.hero-text .links {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #7a6a5a;
-}
-.hero-text .links a {
-  text-decoration: none;
-  color: #7a6a5a;
-  margin: 0 0.25em;
-}
-/* 新しく追加するスタイル：リストの「・」を消す */
-ul {
-  list-style-type: none; /* 点を消す */
-  padding-left: 0; /* 左の余白をなくす */
-}
-footer {
-  background: #eeeae5;
-  padding: 2rem;
-  color: #666;
-  font-size: 0.9rem;
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none; /* Hide desktop nav */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .trending-grid, .gallery-grid, .footer-content {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack image and text */
+        text-align: center;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+    }
 }
