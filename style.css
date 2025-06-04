@@ -41,13 +41,14 @@ body {
 /* 画像セクション */
 .hero {
   background-color: #f2eee9;
-  padding: 1rem 0; /* ← 背景エリア狭く */
+  padding-top: 1.5rem;     /* 上の余白 → 現在のまま */
+  padding-bottom: 0.5rem;  /* 下の余白 → 狭くする */
 }
 .hero-images {
   position: relative;
   width: 100%;
-  max-width: 960px;
-  margin: 0 auto 2rem;
+  max-width: 840px;
+  margin: 0 auto 1.5rem;
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
@@ -71,7 +72,7 @@ body {
 }
 .hero-text {
   background-color: #faf6f1;
-  padding: 1rem 0; /* ← 背景エリア狭く */
+  padding: 0.5rem 0; /* ← 背景エリア狭く */
   text-align: center;
 }
 
