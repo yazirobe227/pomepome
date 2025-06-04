@@ -107,7 +107,7 @@ body {
     flex-wrap: wrap; /* 必要であれば折り返し可能に */
     justify-content: center;
     gap: 0.8rem;  /* ナビ間の余白を少し詰める */
-    font-size: 0.8rem;  /* フォントサイズ小さめに */
+    font-size: 0.6rem;  /* フォントサイズ小さめに */
     padding: 0 0.5rem; 
   }
 
@@ -150,7 +150,7 @@ section {
   justify-items: center;
   padding: 1rem;
 }
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }
