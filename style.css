@@ -38,14 +38,15 @@ body {
   color: #6a554f;
 }
 
+/* 画像セクション */
 .hero {
   background-color: #f2eee9;
-  padding: 3rem 1rem;
+  padding: 1rem 0; /* ← 背景エリア狭く */
 }
 .hero-images {
   position: relative;
   width: 100%;
-  max-width: 768px;
+  max-width: 960px;
   margin: 0 auto 2rem;
   aspect-ratio: 4 / 3;
   overflow: hidden;
@@ -67,6 +68,24 @@ body {
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+.hero-text {
+  background-color: #faf6f1;
+  padding: 1rem 0; /* ← 背景エリア狭く */
+  text-align: center;
+}
+
+.hero-text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #5a4a42;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #7a6a5a;
 }
 
 .hero h2 {
