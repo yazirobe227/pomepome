@@ -108,7 +108,7 @@ body {
     flex-wrap: wrap; /* 必要であれば折り返し可能に */
     justify-content: center;
     gap: 0.8rem;  /* ナビ間の余白を少し詰める */
-    font-size: 0.8rem;  /* フォントサイズ小さめに */
+    font-size: 1rem;  /* フォントサイズ小さめに */
     padding: 0 0.5rem; 
   }
 
